@@ -38,7 +38,16 @@
     <ul>
     <% @topics.each do |topic| %>
       <%= link_to topic do %>
-        <li>[<%= topic.id %>] <%= topic.title %> - Utworzono: <%= topic.created_at %></li>
+        <li><b>[<%= topic.id %>] <%= topic.title %> </b> - Utworzono: <%= topic.created_at %> - Autor: [<%= topic.student.id %>] <%= topic.student.name %> </li>
+      <% end %>
+    <% end %>
+    </ul>
+
+    <h1>Posty</h1>
+    <ul>
+    <% @posts.each do |post| %>
+      <%= link_to post do %>
+        <li><b>[<%= post.id %>] <%= post.body %> </b> - Utworzono: <%= post.created_at %> - Autor: [<%= post.student.id %>] <%= post.student.name %> - w Temacie: <%= post.topic.title %> </li>
       <% end %>
     <% end %>
     </ul>
